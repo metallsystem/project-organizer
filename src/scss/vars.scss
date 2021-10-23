@@ -1,0 +1,32 @@
+$black: #000;
+$white: #fff;
+$accent: #65bc46;
+$text: #58595b;
+$accent-hover: #40772c;
+$media1366: 1366;
+$media1024: 1024;
+$media769: 769;
+$media576: 576;
+
+@mixin media($width) {
+  @media only screen and (max-width: $width + "px") {
+    @content;
+  }
+}
+
+@mixin opensans($weight) {
+  font-weight: $weight;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+@mixin line-clamp($num) {
+  display: -webkit-box;
+  display: box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  -webkit-box-orient: vertical;
+  -ms-line-clamp: $num;
+  -webkit-line-clamp: $num;
+  line-clamp: $num;
+}
