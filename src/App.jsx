@@ -1,18 +1,17 @@
 import React from "react";
-import './app.scss'
+import AppRouter from "./components/AppRouter";
+import './app.scss';
+import Header from "./components/header/Header";
 
 const App = () => {
 
   return (
-    <div className={'container'}>
-      <div className={'wrapper'}>
-        <form className={'form'}>
-          <input className={'input'} type="email" />
-          <input className={'input'} type="password" />
-          <button className={'button'} type="submit">Войти</button>
-        </form>
-      </div>
-    </div>
+    <>
+      <Header />
+      <main className="main">
+        <AppRouter />
+      </main>
+    </>
   );
 };
 

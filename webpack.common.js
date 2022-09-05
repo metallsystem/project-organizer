@@ -11,6 +11,7 @@ module.exports = {
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
