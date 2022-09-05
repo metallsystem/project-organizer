@@ -7,7 +7,7 @@
     "build": "webpack --config webpack.prod.js",
     "start": "webpack serve --open --config webpack.dev.js"
   },
-  "author": "Dyomin Viacheslav <syava321@gmail.com>",
+  "author": "Domin Viacheslav <syava321@gmail.com>",
   "license": "ISC",
   "browserslist": "> 0.25%, not dead",
   "devDependencies": {
