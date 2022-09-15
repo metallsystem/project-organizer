@@ -1,0 +1,11 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 200px;
+
+  &__rights{
+    display: flex;
+    justify-content: space-between;
+  }
+}
