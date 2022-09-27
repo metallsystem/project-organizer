@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { registration } from "../../store/action-creators/user";
-import FormButton from "./FormButton";
-import FormInput from "./FormInput";
+import { registration } from "../../store/action-creators/auth";
+import FormButton from "../UI/FormButton";
+import FormInput from "../UI/FormInput";
 
 const RegistrationForm = () => {
   const [email, setEmail] = useState('');
@@ -42,7 +42,7 @@ const RegistrationForm = () => {
         type="email"
         id="email"
         required
-        text="Email"
+        text="Електронна пошта"
       />
 
       <FormInput
@@ -68,13 +68,13 @@ const RegistrationForm = () => {
         type="password"
         id="repl-password"
         required
-        text="Повторите пароль"
+        text="Підтвердіть пароль"
       />
 
       <FormButton
         onClick={registerHandler}
         type="submit"
-        text="Зарегистрироватся"
+        text="Зареєструватись"
       />
     </form>
   );

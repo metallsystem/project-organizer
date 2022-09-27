@@ -1,22 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AppRouter from "./components/AppRouter";
 import './app.scss';
 import Layout from "./components/layout/Layout";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { checkAuth } from "./store/action-creators/auth";
+import { USER_PAGE_ROUTE } from "./utils/consts";
 
 const App = () => {
 
-  const { loading } = useSelector(state => state.user)
+  const { isAuth, user } = useSelector(state => state.user);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { loading } = useSelector(state => state)
 
   useEffect(() => {
     if (loading) {
+      console.log('loading...');
       return <div>Loading...</div>
-
     }
   }, [loading])
+
+  useEffect(() => {
+
+    if (isAuth) {
+      navigate(USER_PAGE_ROUTE + `/${user.id || user.googleId}`);
+    }
+
+  }, [navigate, isAuth]);
+
+  useEffect( () => {
+    if (localStorage.getItem('token')) {
+      dispatch(checkAuth());
+    }
+  }, [])
 
   return (
     <Layout>

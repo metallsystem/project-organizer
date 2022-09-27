@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import LoginForm from "../components/forms/LoginForm";
+import LoginForm from "../components/auth/LoginForm";
 
 const Login = () => {
+
   return (
     <div className="container">
       <div className="wrapper">

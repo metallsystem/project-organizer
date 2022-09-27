@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
-        <div className="footer__rights">All rights received 2022</div>
+        <div className="footer__rights">Усі права захищені 2022</div>
       </div>
     </footer>
   )

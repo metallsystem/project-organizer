@@ -7,4 +7,6 @@ export const REGISTRATION_ERROR = 'REGISTRATION_ERROR';
 export const LOGOUT = 'LOGOUT';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOGOUT_ERROR = 'LOGOUT_ERROR';
-
+export const CHECK_AUTH = 'CHECK_AUTH';
+export const CHECK_AUTH_SUCCES = 'CHECK_AUTH_SUCCES';
+export const CHECK_AUTH_ERROR = 'CHECK_AUTH_ERROR';
