@@ -11,17 +11,16 @@ import { USER_PAGE_ROUTE } from "./utils/consts";
 
 const App = () => {
 
-  const { isAuth, user } = useSelector(state => state.user);
+  const { isAuth, user } = useSelector(state => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { loading } = useSelector(state => state)
+  const { isLoading } = useSelector(state => state.loading)
 
   useEffect(() => {
-    if (loading) {
-      console.log('loading...');
+    if (isLoading) {
       return <div>Loading...</div>
     }
-  }, [loading])
+  }, [isLoading])
 
   useEffect(() => {
 

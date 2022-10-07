@@ -2,21 +2,21 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink, Link } from "react-router-dom";
 import './header.scss';
+import logo from '../../assets/images/content/logo.png';
 import Logout from "../auth/Logout";
+import UserPanel from "../user-panel/UserPanel";
 
 
 const Header = () => {
-  const { isAuth } = useSelector(state => state.user);
+  const { isAuth } = useSelector(state => state.auth);
 
     return (
       <header className="header">
       <div className="container">
         <div className="header__wrapper">
           <Link className="logo" to="/">
-            Логотип
-            {/* <img className="logo__img" src="" alt="Логотип" /> */}
+            <img className="logo__img" src={logo} alt="Логотип" />
           </Link>
-          <nav className="menu">
               { (!isAuth) ?
                 (
                   <ul className="menu__list">
@@ -30,10 +30,9 @@ const Header = () => {
                 )
               :
                 (
-                  <Logout/>
+                  <UserPanel/>
                 )
               }
-          </nav>
         </div>
       </div>
     </header>

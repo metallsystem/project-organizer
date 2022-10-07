@@ -1,23 +1,14 @@
 .header {
+  background-color: #ffffff;
+
   &__wrapper {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 0;
-  }
-}
-
-.menu {
-  &__list {
-    display: flex;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto;
   }
 
-  &__item {
-    &:not(:first-child) {
-      margin-left: 15px;
-    }
-  }
-
-  &__link.active {
-    display: none;
+  &__inner {
+    height: 100%;
+    padding: 10px 0;
   }
 }

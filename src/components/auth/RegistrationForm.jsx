@@ -11,7 +11,7 @@ const RegistrationForm = () => {
   const [password, setPassword] = useState('');
   const [replPassword, setReplPassword] = useState('');
 
-  const { isAuth } = useSelector(state => state.user);
+  const { isAuth } = useSelector(state => state.auth);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();

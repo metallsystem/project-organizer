@@ -2,8 +2,10 @@ $black: #000;
 $white: #fff;
 $accent: #01a2ff;
 $text: #58595b;
+$border: #000;
 $accent-hover: #40772c;
 $shadow: #001229;
+$active: #6cb4e8;
 $media1366: 1366;
 $media1024: 1024;
 $media769: 769;
@@ -13,11 +15,6 @@ $media576: 576;
   @media only screen and (max-width: $width + "px") {
     @content;
   }
-}
-
-@mixin opensans($weight) {
-  font-weight: $weight;
-  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 @mixin line-clamp($num) {

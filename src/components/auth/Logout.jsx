@@ -9,7 +9,7 @@ import { LOGOUT_SUCCESS } from "../../store/actions/auth";
 
 const Logout = () => {
     const dispatch = useDispatch()
-    const { message, user, authWith } = useSelector(state => state.user);
+    const { message, user, authWith } = useSelector(state => state.auth);
 
     useEffect(() => {
       if (message) {
@@ -29,7 +29,7 @@ const Logout = () => {
       return (
         <ul className="menu__list">
           <li className="menu__item">
-            { (!authWith) ?
+            { (authWith === 'default') ?
                 <FormButton
                   className={ {button: "menu__link button form__button"} }
                   onClick={logoutHandler}

@@ -20,8 +20,8 @@ api.interceptors.response.use((config) => {
 
   if (error.response.status === 401 && error.config && !error.config._isRetry) {
     originRequest._isRetry = true;
-    try {
-      const response = await axios.get(`${API_URL}/refresh`, { withCredentials: true });
+      try {
+        const response = await axios.get(`${API_URL}/refresh`, { withCredentials: true });
       localStorage.setItem('token', response.data.accessToken);
       return api.request(originRequest);
     } catch (error) {
