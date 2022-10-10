@@ -79,3 +79,141 @@
     font-size: 11px;
   }
 }
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(#000, 0.8);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+
+  &--open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 30px 10px;
+  }
+
+  &__btn {
+    padding: 5px 7px 0;
+    background-color: transparent;
+    border: none;
+    transition: outline 0.3s, fill 0.3s;
+    fill: #fff;
+
+    & svg {
+      pointer-events: none;
+    }
+
+    &:focus {
+      outline: 2px solid #000;
+
+      & svg {
+        fill: red;
+      }
+    }
+
+    &:hover {
+      & svg {
+        fill: red;
+      }
+    }
+
+    &:disabled {
+      fill: grey;
+
+      &:hover {
+        & svg {
+          fill: grey;
+        }
+      }
+    }
+
+    &.left {
+      left: 0;
+    }
+
+    &.right {
+      right: 0;
+    }
+
+    &.left,
+    &.right {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50px;
+      background-color: rgba(#000, 0.5);
+      transition: background-color 0.3s;
+    }
+  }
+
+  &__content {
+    position: relative;
+    max-width: 50vw;
+    max-height: 80vh;
+    padding: 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: justify;
+    background-color: #fff;
+  }
+
+  &__list {
+    margin-bottom: 10px;
+  }
+
+  &__item {
+    margin-bottom: 10px;
+  }
+}
+
+
+.radio {
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    display: flex;
+    align-items: center;
+
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+
+  &__input {
+
+    &:checked + .radio__btn {
+      background-color: red;
+    }
+  }
+
+  &__btn {
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background-color: #fff;
+    margin-right: 10px;
+
+    &--checked {
+      border-color: aqua;
+    }
+
+    &--disabled {
+      border-color: gray;
+    }
+  }
+}

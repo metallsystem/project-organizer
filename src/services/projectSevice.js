@@ -17,8 +17,8 @@ export default class ProjectService {
     return await api.get(GET_ALL_PROJECTS_ROUTE, { params: { userId, limit, page } });
   };
 
-  static async createProject(name, userId, privacy) {
-    return await api.post(CREATE_PROJECT_ROUTE, { name, userId, privacy });
+  static async createProject(formData) {
+    return await api.post(CREATE_PROJECT_ROUTE, formData, {headers: {'Content-Type': 'multipart/form-data'}});
   };
 
   static async updateProject(name, privacy, members = []) {

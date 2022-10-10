@@ -160,65 +160,13 @@ main {
   }
 }
 
-.intro__title.page-title {
-  margin-top: 40px;
-  font-size: 60px;
-
-  @include media($media769) {
-    font-size: 45px;
-  }
-
-  @include media($media576) {
-    font-size: 35px;
-  }
-}
-
-.intro__content.page-content {
-  align-items: start;
-  height: 350px;
-}
-
 .lock {
   overflow: hidden;
-}
-
-.text-link {
-  border-bottom: 2px solid transparent;
-  transition: color 0.3s, border-color 0.3s;
-
-  &:focus {
-    color: $accent;
-    border-bottom: 2px solid $accent;
-  }
-
-  &:hover {
-    color: $accent-hover;
-  }
 }
 
 .js-focus-visible .text-link:focus:not(.focus-visible) {
   color: $accent;
   border-bottom: 2px solid transparent;
-}
-
-.phone-link {
-  border-bottom: 2px solid transparent;
-  transition: color 0.3s, border-color 0.3s, fill 0.3s;
-  fill: $text;
-
-  &:focus {
-    color: $accent;
-    fill: $accent;
-
-    & span {
-      border-bottom: 2px solid $accent;
-    }
-  }
-
-  &:hover {
-    color: $accent;
-    fill: $accent;
-  }
 }
 
 .js-focus-visible .phone-link:focus:not(.focus-visible) {

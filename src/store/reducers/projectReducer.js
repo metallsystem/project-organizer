@@ -20,15 +20,15 @@ const initialState = {
 const projectReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_PROJECTS_SUCCESS:
-      return { ...state, ...action.payload };
+      return { ...state, projects: action.payload.projects, count: action.payload.count };
     case GET_ALL_PROJECTS_ERROR:
       return { ...state, message: action.payload };
     case GET_ONE_PROJECT_SUCCESS:
-      return { ...state, projectId: action.payload.projectId, name: action.payload.name, members: action.payload.members };
+      return { ...state, projects: [ ...state.projects, action.payload ] };
     case GET_ONE_PROJECT_ERROR:
       return { ...state, message: action.payload };
     case CREATE_PROJECT_SUCCESS:
-      return { ...state, projectId: action.payload.projectId, name: action.payload.name, members: action.payload.members };
+      return { ...state, projects: [ action.payload, ...state.projects ] };
     case CREATE_PROJECT_ERROR:
       return { ...state, message: action.payload };
     case DELETE_PROJECT_SUCCESS:
@@ -36,7 +36,7 @@ const projectReducer = (state = initialState, action) => {
     case DELETE_PROJECT_ERROR:
       return { ...state, message: action.payload };
     case UPDATE_PROJECT_SUCCESS:
-      return { ...state, projectId: action.payload.projectId, name: action.payload.name, members: action.payload.members, message: action.payload };
+      return { ...state, ...action.payload};
     case UPDATE_PROJECT_ERROR:
       return { ...state, message: action.payload };
     default:

@@ -29,11 +29,10 @@ export const getAll = (userId, limit, page) => {
 
       const projects = response.data.projects;
 
-      let date = projects.map(item => {
+      projects.map(item => {
         item.createdAt = convertDate(item.createdAt);
         item.updatedAt = convertDate(item.updatedAt);
       });
-      console.log(date);
 
       dispatch({ type: GET_ALL_PROJECTS_SUCCESS, payload: response.data });
       dispatch({ type: END_LOADING });
@@ -44,17 +43,22 @@ export const getAll = (userId, limit, page) => {
   };
 };
 
-export const createProject = (name, userId, privacy) => {
+export const createProject = (formData) => {
   return async (dispatch) => {
     try {
       dispatch({ type: START_LOADING });
 
-      const response = await ProjectService.createProject(name, userId, privacy);
+      const response = await ProjectService.createProject(formData);
 
-      dispatch({ type: CREATE_PROJECT_SUCCESS, payload: response.data });
+      const projects = { ...response.data };
+
+      projects.createdAt = convertDate(projects.createdAt);
+      projects.updatedAt = convertDate(projects.updatedAt);
+
+      dispatch({ type: CREATE_PROJECT_SUCCESS, payload: projects });
       dispatch({ type: END_LOADING });
     } catch (error) {
-      dispatch({ type: CREATE_PROJECT_ERROR, payload: response.data });
+      dispatch({ type: CREATE_PROJECT_ERROR, payload: error.message });
       dispatch({ type: END_LOADING });
     }
   }
