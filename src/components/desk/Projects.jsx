@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createProject, getAll } from "../../store/action-creators/progect";
 import FormInput from "../UI/FormInput";
 import { useState } from "react";
+import Modal from "../UI/Modals/Modal";
 
 const Projects = () => {
   const [popup, setPopup] = useState('')
@@ -114,6 +115,7 @@ const Projects = () => {
             </div>
           </div>
       </article>
+      <Modal/>
     </div>
   );
 };

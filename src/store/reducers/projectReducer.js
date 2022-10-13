@@ -22,7 +22,7 @@ const projectReducer = (state = initialState, action) => {
     case GET_ALL_PROJECTS_SUCCESS:
       return { ...state, projects: action.payload.projects, count: action.payload.count };
     case GET_ALL_PROJECTS_ERROR:
-      return { ...state, message: action.payload };
+      return { ...state, ...action.payload };
     case GET_ONE_PROJECT_SUCCESS:
       return { ...state, projects: [ ...state.projects, action.payload ] };
     case GET_ONE_PROJECT_ERROR:

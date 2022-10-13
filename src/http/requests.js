@@ -25,7 +25,7 @@ api.interceptors.response.use((config) => {
       localStorage.setItem('token', response.data.accessToken);
       return api.request(originRequest);
     } catch (error) {
-      console.log();
+      console.log(error);
     }
   }
   throw error;
